@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AZ-900 Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#EEF4FA;--surf:#fff;--ink:#0B2540;--mute:#55697F;--line:#D3DEEA;--az:#0067B8;--azt:#E2F0FC;--ok:#17744A;--okt:#DDF3E8;--warn:#9A5B00;--bad:#B3261E;--badt:#FBE4E2;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1522;--surf:#11243A;--ink:#E8F0F8;--mute:#9DB1C6;--line:#244058;--az:#5CB3FF;--azt:#13324F;--ok:#5FD39A;--okt:#0F3A29;--warn:#F0B35A;--bad:#FF8A80;--badt:#44201F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1522;--surf:#11243A;--ink:#E8F0F8;--mute:#9DB1C6;--line:#244058;--az:#5CB3FF;--azt:#13324F;--ok:#5FD39A;--okt:#0F3A29;--warn:#F0B35A;--bad:#FF8A80;--badt:#44201F;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+h1{font-size:2.2rem;font-weight:800;letter-spacing:-.02em}
+header p{margin:4px 0 0;color:var(--mute)}
+.chip{background:var(--azt);color:var(--az);border-radius:99px;padding:6px 14px;font-weight:600}
+nav{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:20px}
+nav button{flex:1;background:none;border:0;padding:12px 6px;font:600 1rem "Source Sans 3",sans-serif;color:var(--mute);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+nav button[aria-selected=true]{color:var(--az);border-color:var(--az)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--az);outline-offset:2px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px}
+.picker{display:grid;gap:10px}
+.btn{background:var(--az);color:#fff;border:0;border-radius:8px;padding:12px 18px;font:600 1rem "Source Sans 3",sans-serif;cursor:pointer}
+:root[data-theme="dark"] .btn{color:#06223A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#06223A}}
+.btn.ghost{background:none;color:var(--az);border:1.5px solid var(--az)}
+.dom{display:flex;justify-content:space-between;align-items:center;text-align:left;width:100%;background:var(--surf);border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;font:600 1.05rem "Source Sans 3",sans-serif;color:var(--ink);cursor:pointer}
+.dom:hover{border-color:var(--az)}
+.dom small{color:var(--mute);font-weight:400}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:16px}
+.prog i{display:block;height:100%;background:var(--az)}
+.q{font:600 1.3rem/1.35 "Bricolage Grotesque",sans-serif;margin:0 0 16px}
+.opt{display:block;width:100%;text-align:left;background:var(--surf);border:1.5px solid var(--line);border-radius:10px;padding:13px 15px;margin-bottom:10px;font:1rem "Source Sans 3",sans-serif;color:var(--ink);cursor:pointer}
+.opt:hover:not([disabled]){border-color:var(--az)}
+.opt[disabled]{cursor:default}
+.opt.ok{background:var(--okt);border-color:var(--ok)}
+.opt.bad{background:var(--badt);border-color:var(--bad)}
+.fb{border-left:4px solid var(--az);background:var(--azt);border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0}
+.fb b.ok{color:var(--ok)}.fb b.bad{color:var(--bad)}
+.fb p{margin:6px 0 0}
+.simple{color:var(--mute)}
+.meta{color:var(--mute);font-size:.95rem;margin-bottom:6px}
+.rings{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ring{--p:0;--c:var(--az);width:112px;height:112px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0)}
+.ring span{width:86px;height:86px;border-radius:50%;background:var(--surf);display:grid;place-items:center;font:800 1.5rem "Bricolage Grotesque",sans-serif}
+.rd{text-align:center}
+.rd h3{font-size:1.05rem}
+.rd p{margin:2px 0 0;color:var(--mute);font-size:.95rem}
+.big{font:800 3rem/1 "Bricolage Grotesque",sans-serif}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:12px}
+label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+input,select{font:1rem "Source Sans 3",sans-serif;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:var(--surf);color:var(--ink)}
+.day{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.day:first-child{border-top:0}
+.day b{font-family:"Bricolage Grotesque",sans-serif}
+.day p{margin:2px 0 0;color:var(--mute);font-size:.95rem}
+.link{background:none;border:0;color:var(--az);font:600 .95rem "Source Sans 3",sans-serif;cursor:pointer;padding:0;text-decoration:underline}
+.empty{color:var(--mute);text-align:center;padding:12px}
+nav{overflow-x:auto}nav button{flex:1 0 auto;padding:12px;white-space:nowrap}
+.opt.sel{border-color:var(--az);background:var(--azt)}
+textarea{font:1rem "Source Sans 3",sans-serif;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:var(--surf);color:var(--ink);width:100%}
+#bo{white-space:pre-wrap;margin-top:14px}
+.fb,#bo{color:var(--ink)}
+textarea{color:var(--ink);background:var(--surf)}
+:root[data-theme="dark"] .btn.ghost{color:var(--az);background:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.ghost{color:var(--az);background:none}}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+@media (prefers-reduced-motion:no-preference){.prog i{transition:width .3s}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>AZ-900 Coach</h1><p>Practise, see where you stand, and plan your last days.</p></div>
+  <div class="chip" id="chip">Readiness: no data yet</div>
+</header>
+<nav role="tablist">
+  <button role="tab" id="t-quiz" aria-selected="true" data-tab="quiz">Practice</button>
+  <button role="tab" id="t-mock" aria-selected="false" data-tab="mock">Mock exam</button>
+  <button role="tab" id="t-ready" aria-selected="false" data-tab="ready">Readiness</button>
+  <button role="tab" id="t-plan" aria-selected="false" data-tab="plan">Study plan</button>
+  <button role="tab" id="t-buddy" aria-selected="false" data-tab="buddy">Study buddy</button>
+</nav>
+<main id="view"></main>
+</div>
+<script>
+const D={
+ c:{n:"Cloud concepts",w:.275,t:["Shared responsibility","CapEx vs OpEx","IaaS, PaaS, SaaS","Public, private, hybrid","Elasticity and scalability"]},
+ a:{n:"Azure architecture and services",w:.375,t:["Regions and availability zones","Compute: VMs, Functions, containers","Storage and Blob tiers","Networking: VPN, ExpressRoute, VNets","Resource groups and subscriptions"]},
+ m:{n:"Management and governance",w:.325,t:["Cost: Pricing calculator and TCO","Azure Policy, locks, RBAC","Microsoft Entra ID and MFA","Azure Advisor and Monitor","Compliance and trust resources"]}
+};
+// First option in each "o" array is the correct answer; options are shuffled on screen.
+const BANK=[
+{d:"c",q:"Which cloud benefit adds or removes resources automatically as demand changes?",o:["Elasticity","Geo-distribution","Reserved capacity","Data sovereignty"],e:"Elasticity means resources grow and shrink with demand, so you only run what you need.",s:"Like a rubber band that stretches only when something pulls on it."},
+{d:"c",q:"In the shared responsibility model, what is always the customer’s responsibility, whatever the service type?",o:["Information and data","Physical datacenter security","Physical network","Host hardware"],e:"Microsoft always secures the physical layer. Your data, accounts and identities stay yours in IaaS, PaaS and SaaS.",s:"The landlord secures the building; you still lock your own flat."},
+{d:"c",q:"A company stops buying servers and pays monthly for what it uses. Which shift is this?",o:["CapEx to OpEx","OpEx to CapEx","Private to hybrid","IaaS to on-premises"],e:"Upfront hardware purchases are capital expenditure (CapEx). Pay-as-you-go cloud spending is operational expenditure (OpEx).",s:"Buying a car (CapEx) versus paying for taxi rides (OpEx)."},
+{d:"c",q:"You manage only your apps and data, while Azure manages the OS and runtime. Which model is this?",o:["PaaS","IaaS","SaaS","On-premises"],e:"With PaaS the provider handles servers, OS and runtime. IaaS leaves the OS to you; SaaS leaves only your data and settings.",s:"A fully equipped kitchen: you bring ingredients and cook."},
+{d:"c",q:"Which describes a hybrid cloud?",o:["On-premises datacenter combined with a public cloud","Two different public clouds only","Only a private cloud","A single Azure region"],e:"Hybrid joins your own datacenter (private) with a public cloud so workloads can move between them.",s:"Owning a house but renting a holiday flat when you need extra room."},
+{d:"a",q:"What protects an app from the failure of one datacenter inside an Azure region?",o:["Availability zones","Resource locks","Azure Policy","Management groups"],e:"Availability zones are separate datacenters in a region, each with its own power, cooling and networking.",s:"Keeping spare keys in three different buildings."},
+{d:"a",q:"Which service runs small pieces of code triggered by events, without managing servers?",o:["Azure Functions","Azure Virtual Machines","Azure Bastion","Azure Backup"],e:"Azure Functions is serverless compute. You pay only while the code runs.",s:"A vending machine: it works only when someone presses a button."},
+{d:"a",q:"Azure Blob Storage is best suited for which type of data?",o:["Unstructured data such as images and videos","Relational tables only","Message queues only","Virtual machine CPUs"],e:"Blob storage holds massive amounts of unstructured objects like files, media and backups.",s:"A huge warehouse where you drop boxes of any shape."},
+{d:"a",q:"Which service creates an encrypted tunnel between your network and Azure over the public internet?",o:["VPN Gateway","ExpressRoute","Azure Firewall","Load Balancer"],e:"VPN Gateway uses the internet. ExpressRoute is a private connection that does not cross the public internet.",s:"A tinted-window car on a public road, not a private railway."},
+{d:"a",q:"What is a logical container that groups related Azure resources for shared management?",o:["Resource group","Region","Availability set","Virtual network"],e:"A resource group holds resources that share a lifecycle, so you can deploy, manage and delete them together.",s:"A folder for everything one project needs."},
+{d:"m",q:"Which tool estimates the cost of Azure services before you deploy them?",o:["Pricing calculator","Azure Advisor","Service Health","Azure Monitor"],e:"The Pricing calculator forecasts costs for planned resources. The TCO calculator compares Azure with on-premises costs.",s:"A shopping basket total before you reach the till."},
+{d:"m",q:"What does Azure Policy do?",o:["Enforces rules such as allowed regions on resources","Stores secrets","Balances web traffic","Backs up virtual machines"],e:"Azure Policy evaluates resources against your standards and can block or flag those that do not comply.",s:"House rules that say which pets are allowed."},
+{d:"m",q:"What is the purpose of a resource lock?",o:["Prevent accidental deletion or changes","Encrypt data at rest","Reduce costs","Move resources between regions"],e:"CanNotDelete and ReadOnly locks protect resources even from users who have permission to change them.",s:"A safety cover over a light switch."},
+{d:"m",q:"Which feature asks users for a second proof of identity, such as a phone prompt?",o:["Multi-factor authentication","Resource tags","Network peering","Azure Blueprints"],e:"MFA requires two or more verification methods, so a stolen password alone is not enough. It is part of Microsoft Entra ID.",s:"A bank card plus a PIN."},
+{d:"m",q:"Which service gives personalised recommendations on cost, security, reliability and performance?",o:["Azure Advisor","Azure Policy","Azure Lighthouse","Azure Arc"],e:"Azure Advisor analyses your resources and suggests ways to improve them.",s:"A personal trainer reviewing your workout."},
+{d:"c",q:"Which benefit keeps services running with minimal downtime, backed by an SLA?",o:["High availability","Predictable licensing","Data residency","Hardware ownership"],e:"High availability means services stay reachable even when parts of the system fail.",s:"A shop with a backup generator."},
+{d:"c",q:"Which pricing approach means you pay only for the resources you actually use?",o:["Consumption-based","Fixed annual licence","Hardware depreciation","Perpetual purchase"],e:"Consumption-based pricing charges for usage, so there is no large upfront spend.",s:"A prepaid phone plan billed per minute used."},
+{d:"c",q:"Which cloud type is owned and used by a single organisation?",o:["Private cloud","Public cloud","Multi-tenant cloud","Shared cloud"],e:"A private cloud is dedicated to one organisation, on-premises or hosted.",s:"A private members-only club."},
+{d:"c",q:"A company uses Microsoft 365 email without managing servers or software. Which model is this?",o:["SaaS","IaaS","PaaS","On-premises"],e:"SaaS delivers a finished application. You just use it and manage your data and users.",s:"Taking a taxi instead of owning a car."},
+{d:"c",q:"Who patches the guest operating system on an Azure virtual machine (IaaS)?",o:["The customer","Microsoft","The internet provider","Nobody, it is automatic"],e:"In IaaS Microsoft manages the physical host. You manage the OS, patches and apps on the VM.",s:"You rent the empty flat; the furniture is yours to fix."},
+{d:"a",q:"Which service hosts web apps without you managing the underlying servers?",o:["Azure App Service","Azure Bastion","Azure DNS","Azure Backup"],e:"App Service is a PaaS offering for web apps and APIs, with built-in scaling.",s:"A food court stall: the building is already run for you."},
+{d:"a",q:"Which Blob access tier is cheapest for data you rarely read and can wait hours to get back?",o:["Archive","Hot","Premium","Standard SSD"],e:"Archive is the lowest-cost tier, but retrieving data takes hours.",s:"Winter clothes stored in the loft."},
+{d:"a",q:"Which service gives a private, dedicated connection to Azure that avoids the public internet?",o:["ExpressRoute","VPN Gateway","Azure Front Door","Traffic Manager"],e:"ExpressRoute uses a connectivity provider for a private link with more reliability and consistent speeds.",s:"A private railway line between two cities."},
+{d:"a",q:"What is the purpose of an Azure region pair?",o:["Disaster recovery between two regions in the same geography","Combining two subscriptions","Doubling a VM’s size","Merging billing accounts"],e:"Each region is paired with another in the same geography, so recovery is possible if a whole region fails.",s:"A sister branch that can take over if one shop closes."},
+{d:"a",q:"Which service runs a container quickly without managing virtual machines?",o:["Azure Container Instances","Azure DNS","Azure Advisor","Azure Policy"],e:"Azure Container Instances starts containers in seconds with no servers to manage.",s:"Pop-up shops that open and close on demand."},
+{d:"a",q:"Which service is a managed relational database for SQL Server workloads?",o:["Azure SQL Database","Azure Blob Storage","Azure Queue Storage","Azure Files"],e:"Azure SQL Database is a PaaS relational database with built-in backups and patching.",s:"A filing cabinet someone else maintains."},
+{d:"a",q:"Which service spreads incoming traffic across several virtual machines?",o:["Azure Load Balancer","Azure Key Vault","Azure Monitor","Azure Backup"],e:"A load balancer distributes requests so no single VM is overwhelmed and failures are tolerated.",s:"A host sending guests to free tables."},
+{d:"a",q:"Which is the correct hierarchy, from the top down?",o:["Management groups, subscriptions, resource groups, resources","Subscriptions, management groups, resources, resource groups","Resource groups, subscriptions, management groups, resources","Resources, resource groups, subscriptions, management groups"],e:"Management groups hold subscriptions, which hold resource groups, which hold resources.",s:"Country, city, street, house."},
+{d:"a",q:"Which cross-platform command-line tool manages Azure resources?",o:["Azure CLI","Azure Advisor","Azure Service Health","Azure Monitor"],e:"Azure CLI and Azure PowerShell let you script and automate Azure tasks.",s:"Typing commands instead of clicking buttons."},
+{d:"a",q:"Which service offers file shares accessed over SMB?",o:["Azure Files","Azure Queue Storage","Azure Table Storage","Azure DNS"],e:"Azure Files provides fully managed cloud file shares, similar to a network drive.",s:"A shared drive in the cloud."},
+{d:"m",q:"Which tool compares the cost of running workloads on-premises with running them in Azure?",o:["TCO calculator","Pricing calculator","Azure Monitor","Service Health"],e:"The TCO calculator estimates savings from moving to Azure. The Pricing calculator prices specific Azure resources.",s:"Comparing the cost of owning a car with using taxis."},
+{d:"m",q:"Which feature controls what users can do by assigning roles at a scope?",o:["Azure RBAC","Resource tags","Azure Advisor","Network peering"],e:"Role-based access control assigns roles such as Reader or Contributor to users at a chosen scope.",s:"Staff badges that open only certain doors."},
+{d:"m",q:"Which service tells you about Azure incidents affecting the services and regions you use?",o:["Azure Service Health","Azure Advisor","Azure Policy","Microsoft Cost Management"],e:"Service Health gives personalised alerts about outages, planned maintenance and advisories.",s:"A traffic report for your own route."},
+{d:"m",q:"Which service collects and analyses metrics and logs from your resources?",o:["Azure Monitor","Azure Policy","Azure Blueprints","Azure Backup"],e:"Azure Monitor gathers telemetry so you can see performance and set alerts.",s:"A dashboard in a car."},
+{d:"m",q:"Which feature helps organise resources for cost reporting, for example by department?",o:["Tags","Locks","Availability zones","Virtual networks"],e:"Tags are name-value labels. They help group resources for billing and management.",s:"Colour-coded sticky notes."},
+{d:"m",q:"Which service lets you analyse spending and set budgets across Azure?",o:["Microsoft Cost Management","Azure Advisor","Azure Arc","Azure DNS"],e:"Cost Management helps you monitor, allocate and control cloud spending with budgets and alerts.",s:"A banking app for your cloud bill."},
+{d:"m",q:"Which Microsoft Entra ID capability lets users sign in once to reach many apps?",o:["Single sign-on","Resource locks","Availability sets","Pay-as-you-go"],e:"Single sign-on (SSO) means one identity gives access to many applications.",s:"One key card for the whole office."},
+{d:"m",q:"Where can you find Microsoft’s compliance reports and audit documents?",o:["Service Trust Portal","Azure Marketplace","Azure Advisor","Azure Status page"],e:"The Service Trust Portal publishes certifications, audit reports and compliance guidance.",s:"A library of safety inspection certificates."},
+{d:"m",q:"Which service lets you manage on-premises and multi-cloud servers from Azure?",o:["Azure Arc","Azure Bastion","Azure Functions","Azure DNS"],e:"Azure Arc extends Azure management and governance to resources running outside Azure.",s:"A universal remote for devices everywhere."},
+{d:"m",q:"Which security principle gives users only the access they need to do their job?",o:["Least privilege","Shared accounts","Open access by default","Global admin for everyone"],e:"Least privilege limits damage if an account is compromised, because it can do very little.",s:"A visitor pass that opens only the meeting room."}
+];
+const $=s=>document.querySelector(s);
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let S={st:{c:{a:0,t:0},a:{a:0,t:0},m:{a:0,t:0}},exam:"",hrs:5,wr:[]};
+try{const r=localStorage.getItem("az900");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+const save=()=>{try{localStorage.setItem("az900",JSON.stringify(S))}catch(e){}};
+let tab="quiz",Q={list:[],i:0,opts:[],pick:null,score:0,dom:""};
+
+function acc(k){const s=S.st[k];return s.t?s.a/s.t:null}
+function overall(){let n=0,w=0;for(const k in D){const a=acc(k);if(S.st[k].t>=2){n+=a*D[k].w;w+=D[k].w}}return w?Math.round(n/w*100):null}
+function verdict(p){return p<50?"Keep building":p<70?"Getting close":"Exam-ready range"}
+function chip(){const p=overall();$("#chip").textContent=p===null?"Readiness: no data yet":"Readiness: "+p+"%"}
+
+const SB_URL="YOUR_SUPABASE_URL",SB_KEY="YOUR_SUPABASE_ANON_KEY";
+let sb=null,uid=null;
+const rec=(q,ok,mode)=>{if(sb)sb.from("attempts").insert({question_id:BANK.indexOf(q)+1,correct:ok,mode}).then(()=>{},()=>{})};
+async function initSB(){
+ try{if(!window.supabase||SB_URL.startsWith("YOUR"))return;
+ const c=supabase.createClient(SB_URL,SB_KEY);
+ let {data:{session}}=await c.auth.getSession();
+ if(!session){const r=await c.auth.signInAnonymously();session=r.data.session}
+ if(!session)return;
+ sb=c;uid=session.user.id;
+ const [a,s]=await Promise.all([sb.from("attempts").select("question_id,correct").order("created_at"),sb.from("study_settings").select("*").maybeSingle()]);
+ if(a.data){S.st={c:{a:0,t:0},a:{a:0,t:0},m:{a:0,t:0}};const last={};a.data.forEach(r=>{const q=BANK[r.question_id-1];if(!q)return;S.st[q.d].t++;if(r.correct)S.st[q.d].a++;last[r.question_id]=r.correct});S.wr=Object.keys(last).filter(k=>!last[k]).map(k=>+k-1)}
+ if(s.data){S.exam=s.data.exam_date||"";S.hrs=s.data.hours_per_week}
+ save();chip();render()}catch(e){console.warn("Supabase unavailable",e)}}
+function start(dom){const l=BANK.filter((x,i)=>dom==="all"||(dom==="wrong"?S.wr.includes(i):x.d===dom));Q={list:sh(l),i:0,pick:null,score:0,dom};load()}
+function load(){const q=Q.list[Q.i];if(q)Q.opts=sh(q.o.map((t,k)=>({t,ok:k===0})));Q.pick=null}
+function pick(k){if(Q.pick!==null)return;Q.pick=k;const q=Q.list[Q.i],ok=Q.opts[k].ok;S.st[q.d].t++;rec(q,ok,"practice");const bi=BANK.indexOf(q);if(ok){S.st[q.d].a++;Q.score++;S.wr=S.wr.filter(z=>z!==bi)}else if(!S.wr.includes(bi))S.wr.push(bi);save();chip();render()}
+
+function quiz(){
+ if(!Q.list.length){
+  const cnt=k=>BANK.filter(x=>x.d===k).length;
+  return `<div class="card"><h2>Choose what to practise</h2><p class="meta">Each answer gives instant feedback and a plain-English explanation.</p><div class="picker">
+  <button class="dom" data-start="all"><span>Mixed: all domains</span><small>${BANK.length} questions</small></button>
+  ${S.wr.length?`<button class="dom" data-start="wrong"><span>Review my mistakes</span><small>${S.wr.length} to revisit</small></button>`:""}
+  ${Object.keys(D).map(k=>`<button class="dom" data-start="${k}"><span>${D[k].n}</span><small>${cnt(k)} questions${S.st[k].t?" · "+Math.round(acc(k)*100)+"% so far":""}</small></button>`).join("")}</div></div>`}
+ if(Q.i>=Q.list.length){
+  const p=Math.round(Q.score/Q.list.length*100);
+  return `<div class="card rd"><p class="meta">Round complete</p><div class="big">${Q.score}/${Q.list.length}</div><p>${p>=70?"That is above the 70% pass line. Keep it steady.":"Below the 70% pass line, and that is useful: it shows where to focus."}</p><div class="row" style="justify-content:center;margin-top:16px"><button class="btn" data-start="${Q.dom}">Practise again</button><button class="btn ghost" data-tab="ready">See readiness</button></div><p><button class="link" data-reset="1">Choose another domain</button></p></div>`}
+ const q=Q.list[Q.i],done=Q.pick!==null;
+ let h=`<div class="prog" aria-hidden="true"><i style="width:${Q.i/Q.list.length*100}%"></i></div><div class="card"><p class="meta">Question ${Q.i+1} of ${Q.list.length} · ${D[q.d].n}</p><p class="q">${q.q}</p>`;
+ Q.opts.forEach((o,k)=>{const c=done?(o.ok?"ok":k===Q.pick?"bad":""):"";h+=`<button class="opt ${c}" data-pick="${k}" ${done?"disabled":""}>${o.t}${done&&o.ok?" ✓":""}</button>`});
+ if(done){const ok=Q.opts[Q.pick].ok;h+=`<div class="fb" role="status"><b class="${ok?"ok":"bad"}">${ok?"Correct.":"Not quite."}</b><p>${q.e}</p><p class="simple">In simple terms: ${q.s}</p><p><button class="link" data-askq="${BANK.indexOf(q)}">Ask the Study Buddy about this</button></p></div><button class="btn" data-next="1">${Q.i+1<Q.list.length?"Next question":"Finish round"}</button>`}
+ return h+`</div>`}
+
+function ready(){
+ const p=overall();
+ let h=`<div class="card rd"><p class="meta">Overall readiness, weighted by exam domain size</p>${p===null?`<p class="empty">Answer at least 2 questions in a domain to see your readiness.</p><button class="btn" data-tab="quiz">Start practising</button>`:`<div class="big">${p}%</div><p><b>${verdict(p)}</b>. The pass mark is 700 out of 1000, roughly 70%.</p>`}</div><div class="rings">`;
+ for(const k in D){const a=acc(k),s=S.st[k],pc=a===null?0:Math.round(a*100),c=a===null?"var(--line)":pc>=70?"var(--ok)":pc>=50?"var(--warn)":"var(--bad)";
+  h+=`<div class="card rd"><div class="ring" style="--p:${pc};--c:${c}"><span>${a===null?"–":pc+"%"}</span></div><h3>${D[k].n}</h3><p>${s.t?s.a+" of "+s.t+" correct":"Not attempted yet"} · ${Math.round(D[k].w*100)}% of exam</p>${s.t?`<p><button class="link" data-startd="${k}">Practise this domain</button></p>`:""}</div>`}
+ h+=`</div>`;
+ const tested=Object.keys(D).filter(k=>S.st[k].t>=2).sort((x,y)=>acc(x)-acc(y));
+ if(tested.length)h+=`<div class="card"><h3>Weakest area</h3><p>${D[tested[0]].n} is at ${Math.round(acc(tested[0])*100)}%. Review: ${D[tested[0]].t.slice(0,3).join(", ")}.</p></div>`;
+ return h+`<p><button class="link" data-clear="1">Clear my progress</button></p>`}
+
+function need(k){const a=acc(k);return D[k].w*(1-(a===null||S.st[k].t<2?.5:a))}
+function plan(){
+ let h=`<div class="card"><h2>Build my plan</h2><div class="row"><label>Exam date<input type="date" id="ex" value="${S.exam}"></label><label>Hours per week<select id="hr">${[3,5,8,12].map(x=>`<option ${x==S.hrs?"selected":""}>${x}</option>`).join("")}</select></label><button class="btn" data-plan="1">Update plan</button></div><p class="meta">Weak domains get more days, using your quiz results.</p></div>`;
+ if(!S.exam)return h+`<p class="empty">Pick your exam date to see a daily plan.</p>`;
+ const left=Math.ceil((new Date(S.exam+"T00:00:00")-new Date().setHours(0,0,0,0))/864e5);
+ if(isNaN(left)||left<0)return h+`<p class="empty">That date has passed. Choose a future date.</p>`;
+ const order=Object.keys(D).sort((x,y)=>need(y)-need(x)),pat=[0,1,0,2,0,1,2],mins=Math.round(S.hrs*60/7/5)*5;
+ const n=Math.min(left+1,7);let rows="";
+ for(let i=0;i<n;i++){
+  const d=new Date();d.setDate(d.getDate()+i);const lab=d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  let t,s,k=null;
+  if(i===left){t="Exam day";s="Light review of your notes. Sleep well and arrive early."}
+  else if(i===left-1&&left>0){t="Mixed practice, then rest";s="One mixed round of questions, then stop early."}
+  else{k=order[pat[i%pat.length]];const tp=D[k].t[(i/2|0)%D[k].t.length];t=D[k].n;s=`Study: ${tp}. Then a short quiz round on this domain.`}
+  rows+=`<div class="day"><b>${lab}</b><div><b>${t}</b> · ${mins} min<p>${s}</p>${k?`<button class="link" data-startd="${k}">Practise now</button>`:""}</div></div>`}
+ return h+`<div class="card"><h3>${left===0?"Your exam is today":left+" day"+(left===1?"":"s")+" to go"}</h3>${rows}<p class="meta">Showing the next ${n} day${n===1?"":"s"}. Update the plan after each practice round.</p></div>`}
+
+let M=null,tmr=null;
+function mockStart(){const l=sh(BANK).slice(0,25);M={l,o:l.map(q=>sh(q.o.map((t,k)=>({t,ok:k===0})))),a:l.map(()=>null),i:0,end:Date.now()+18e5,done:false};clearInterval(tmr);tmr=setInterval(tick,1000);render()}
+function tick(){if(!M||M.done)return clearInterval(tmr);const s=Math.max(0,Math.round((M.end-Date.now())/1e3)),e=$("#tm");if(e)e.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");if(!s)mockEnd()}
+const right=i=>M.a[i]!==null&&M.o[i][M.a[i]].ok;
+function mockEnd(){if(M.done)return;M.done=true;clearInterval(tmr);M.l.forEach((q,i)=>{const bi=BANK.indexOf(q);S.st[q.d].t++;rec(q,right(i),"mock");if(right(i)){S.st[q.d].a++;S.wr=S.wr.filter(z=>z!==bi)}else if(!S.wr.includes(bi))S.wr.push(bi)});if(sb){const c=M.l.filter((q,i)=>right(i)).length;sb.from("mock_results").insert({score:Math.round(c/M.l.length*1000),correct:c,total:M.l.length}).then(()=>{},()=>{})}save();chip();render()}
+function mock(){
+ if(!M)return `<div class="card"><h2>Mock exam</h2><p>25 questions in 30 minutes, with no feedback until the end. Your result is scaled to 1000, and 700 is a pass, as in the real exam.</p><button class="btn" data-mock="1">Start mock exam</button></div>`;
+ if(M.done){const n=M.l.length,c=M.l.filter((q,i)=>right(i)).length,sc=Math.round(c/n*1000),by={};M.l.forEach((q,i)=>{const b=by[q.d]||(by[q.d]=[0,0]);b[1]++;if(right(i))b[0]++});
+  return `<div class="card rd"><p class="meta">Mock exam result</p><div class="big">${sc}/1000</div><p><b>${sc>=700?"Pass":"Not yet"}</b>: ${c} of ${n} correct. The pass mark is 700.</p>${Object.keys(by).map(k=>`<p>${D[k].n}: ${by[k][0]}/${by[k][1]}</p>`).join("")}</div><div class="card"><h3>Questions to review</h3>${M.l.map((q,i)=>right(i)?"":`<div class="fb"><b>${q.q}</b><p>Answer: ${q.o[0]}</p><p>${q.e}</p></div>`).join("")||"<p>You got every question right.</p>"}<button class="btn" data-mock="1">Try another mock</button></div>`}
+ return `<div class="row" style="justify-content:space-between"><span class="meta">Question ${M.i+1} of ${M.l.length}</span><b id="tm" class="chip">30:00</b></div><div class="card"><p class="q">${M.l[M.i].q}</p>${M.o[M.i].map((o,k)=>`<button class="opt ${M.a[M.i]===k?"sel":""}" data-mpick="${k}">${o.t}</button>`).join("")}<div class="row"><button class="btn" data-mnext="1">${M.i+1<M.l.length?"Next question":"Finish exam"}</button><button class="link" data-mend="1">Finish now</button></div></div>`}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let B={q:"",out:""},SMP=true;
+
+function buddy(){const ch=["Shared responsibility model","Availability zones vs regions","CapEx vs OpEx","What is Azure Policy?"];
+ return `<div class="card"><h2>Study buddy</h2><p class="meta">Ask about any Azure or cloud concept and get a plain-English explanation.</p><label>Your question<textarea id="bq" rows="3">${esc(B.q)}</textarea></label><div class="row" style="margin-top:10px">${ch.map(c=>`<button class="btn ghost" data-chip="${c}">${c}</button>`).join("")}</div><button class="btn" data-ask="1" ${SMP?"":"disabled"}>Explain simply</button>${SMP?"":`<p class="meta">The Study buddy works when this page is opened inside Claude.</p>`}<div class="fb" id="bo" aria-live="polite" ${B.out?"":"hidden"}>${esc(B.out)}</div></div>`}
+async function ask(){const t=$("#bq").value.trim();if(!t||!SMP)return;B.q=t;B.out="";const o=$("#bo");o.hidden=false;o.textContent="Thinking…";
+ try{const res=await fetch("/api/explain",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:t})});const j=await res.json();if(!res.ok)throw new Error(j.error||"failed");B.out=j.text;o.textContent=j.text}
+ catch(e){o.textContent=e&&e.code==="not_granted"?"Permission was not granted, so the Study buddy cannot answer.":"The Study buddy could not answer just now. Try again in a moment."}}
+function render(){
+ $("#view").innerHTML={quiz,mock,ready,plan,buddy}[tab]();if(tab==="mock"&&M&&!M.done)tick();
+ document.querySelectorAll("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===tab))}
+function go(t){tab=t;render();window.scrollTo(0,0)}
+document.addEventListener("click",e=>{
+ const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+ if(d.tab)go(d.tab);
+ else if(d.start){start(d.start);render()}
+ else if(d.startd){start(d.startd);go("quiz")}
+ else if(d.pick!==undefined)pick(+d.pick);
+ else if(d.next){Q.i++;load();render()}
+ else if(d.reset){Q.list=[];render()}
+ else if(d.mock)mockStart();
+ else if(d.mpick!==undefined){M.a[M.i]=+d.mpick;render()}
+ else if(d.mnext){if(M.i+1<M.l.length){M.i++;render()}else mockEnd()}
+ else if(d.mend)mockEnd();
+ else if(d.ask)ask();
+ else if(d.chip){B.q="Explain: "+d.chip;go("buddy")}
+ else if(d.askq){B.q="Explain this AZ-900 question and why the correct answer is right: "+BANK[+d.askq].q;go("buddy")}
+ else if(d.plan){S.exam=$("#ex").value;S.hrs=+$("#hr").value;if(sb)sb.from("study_settings").upsert({user_id:uid,exam_date:S.exam||null,hours_per_week:S.hrs}).then(()=>{},()=>{});save();render()}
+ else if(d.clear){if(confirm("Clear all your practice results?")){S.st={c:{a:0,t:0},a:{a:0,t:0},m:{a:0,t:0}};S.wr=[];if(sb)sb.from("attempts").delete().eq("user_id",uid).then(()=>{},()=>{});save();chip();render()}}
+});
+chip();render();initSB();
+</script>
+</body>
+</html>
