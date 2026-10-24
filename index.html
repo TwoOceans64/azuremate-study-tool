@@ -151,7 +151,7 @@ function overall(){let n=0,w=0;for(const k in D){const a=acc(k);if(S.st[k].t>=2)
 function verdict(p){return p<50?"Keep building":p<70?"Getting close":"Exam-ready range"}
 function chip(){const p=overall();$("#chip").textContent=p===null?"Readiness: no data yet":"Readiness: "+p+"%"}
 
-const SB_URL="YOUR_SUPABASE_URL",SB_KEY="YOUR_SUPABASE_ANON_KEY";
+const SB_URL="https://eymbikgcjncyygsgfqag.supabase.co",SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5bWJpa2djam5jeXlnc2dmcWFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MjQ0NzEsImV4cCI6MjEwODQwMDQ3MX0.ZTOeouieWlbpNjX-VDE1IYcBTmw3M157XFDvmfVs8aM";
 let sb=null,uid=null;
 const rec=(q,ok,mode)=>{if(sb)sb.from("attempts").insert({question_id:BANK.indexOf(q)+1,correct:ok,mode}).then(()=>{},()=>{})};
 async function initSB(){
